@@ -1,0 +1,2 @@
+class BadRecordUpdate < CustomError
+end

@@ -1,0 +1,15 @@
+<head>
+  <%= render "layouts/application_header" %>
+
+  <script>
+    if (globalThis === undefined) {
+      var globalThis = window;
+    }
+  </script>
+
+  <%= vite_javascript_tag 'Spa.jsx' %>
+</head>
+
+<body>
+  <div id="root"></div>
+</body>

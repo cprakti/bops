@@ -1,0 +1,2 @@
+class BadCsvError < CustomError
+end
