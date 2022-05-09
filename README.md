@@ -37,6 +37,12 @@ Using [Bundler](https://github.com/bundler/bundler)
 bundle
 ```
 
+Using [Yarn](https://yarnpkg.com/getting-started/install)
+
+```
+yarn
+```
+
 ### Initialize the database
 
 ```
