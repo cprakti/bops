@@ -1,73 +1,32 @@
-import React, { useState } from "react";
+import React, { useEffect, useState } from "react";
 import { TextField } from "@mui/material";
 import { Table } from "./Table";
+import axios from "axios";
+
+const baseParams = {
+  page: 1,
+  per_page: 1000, // bypassing pagination for now
+}
 
 export const SearchAndTable = () => {
   const [query, setQuery] = useState('');
+  const [data, setData] = useState(null);
 
-  const onChange = (event) => {
-    setQuery(event.target.value);
+  const fetchRecords = async () => {
+    const queryParam = query.length ? query : undefined;
+    const params = { ...baseParams, query: queryParam }
+    const { data } = await axios.get('/records', { params });
+
+    setData(data);
   }
 
-  // Will be replaced with proper axios call on debounce
-  const data = [
-    {
-        "id": 1,
-        "artist_name": "Radiohead",
-        "title": "OK Computer",
-        "release_year": 1997,
-        "condition": 10
-    },
-    {
-        "id": 2,
-        "artist_name": "Radiohead",
-        "title": "OK Computer",
-        "release_year": 1997,
-        "condition": 9
-    },
-    {
-        "id": 3,
-        "artist_name": "Radiohead",
-        "title": "Kid A",
-        "release_year": 2000,
-        "condition": 6
-    },
-    {
-        "id": 4,
-        "artist_name": "Radiohead",
-        "title": "Kid A",
-        "release_year": 2000,
-        "condition": 1
-    },
-    {
-        "id": 5,
-        "artist_name": "Queens of the Stone Age",
-        "title": "Queens of the Stone Age",
-        "release_year": 1998,
-        "condition": 4
-    },
-    {
-        "id": 6,
-        "artist_name": "Queens of the Stone Age",
-        "title": "Queens of the Stone Age",
-        "release_year": 1998,
-        "condition": 2
-    },
-    {
-        "id": 7,
-        "artist_name": "Queens of the Stone Age",
-        "title": "Rated R",
-        "release_year": 2000,
-        "condition": 8
-    },
-    {
-        "id": 8,
-        "artist_name": "Queens of the Stone Age",
-        "title": "Rated R",
-        "release_year": 2000,
-        "condition": 5
-    }
-  ];
+  useEffect(async () => {
+    fetchRecords();
+  }, [query])
+
+  const onChange = async (event) => {
+    setQuery(event.target.value);
+  }
 
   return (
     <>

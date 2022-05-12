@@ -31,3 +31,8 @@ The following are ideas on how to improve the repo. They are not prioritized.
 - Add suggested VS Code extensions
 - Use SWR or React Query instead of axios
 - Add a loading indicator, such as the magnifying glass turning into the loading spinner
+- Add Redux and state management tests
+- Add user interaction tests
+- Use `sessionStorage` for storing the query
+- Add proper loading indicator
+- Controller specs
