@@ -1,17 +1,11 @@
 import React from "react";
 import { Route, Routes } from "react-router-dom";
-import Placeholder from "./Placeholder";
+
+import { Home } from "./Home";
 
 const RecordAppRoutes = () => (
   <Routes>
-    <Route
-      index
-      element={<div>Hello World</div>}
-    />
-    <Route
-      path={'/placeholder'}
-      element={<Placeholder />}
-    />
+    <Route index element={<Home />} />
   </Routes>
 );
 

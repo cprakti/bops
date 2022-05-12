@@ -24,3 +24,10 @@ The following are ideas on how to improve the repo. They are not prioritized.
 - Add another sanity-check for vite (such as telling them to change some text, save, and `localhost:3000` should reflect changes)
 - Add GitHub Actions
 - Add PR template
+- Add suggestion to do Squash & Merge on PRs
+- Add missing Postman info to `README.md`, such as setting `host` env var
+- Add shared snippets, such as `fc` to build a function component
+- Set up React components to not need `import React from "react";`
+- Add suggested VS Code extensions
+- Use SWR or React Query instead of axios
+- Add a loading indicator, such as the magnifying glass turning into the loading spinner
