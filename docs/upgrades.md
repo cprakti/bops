@@ -36,3 +36,5 @@ The following are ideas on how to improve the repo. They are not prioritized.
 - Use `sessionStorage` for storing the query
 - Add proper loading indicator
 - Controller specs
+- Add aliases, so you can do `~/lib/useDebounce`
+- Add virtualization for smoother scrolling experience
