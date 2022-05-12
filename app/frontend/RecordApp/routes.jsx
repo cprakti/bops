@@ -6,14 +6,13 @@ const RecordAppRoutes = () => (
   <Routes>
     <Route
       index
-      element={<div>Home</div>}
+      element={<div>Hello World</div>}
     />
     <Route
       path={'/placeholder'}
       element={<Placeholder />}
     />
-
-  </Routes> 
+  </Routes>
 );
 
 export default RecordAppRoutes;
