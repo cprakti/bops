@@ -10,12 +10,12 @@ const rightAlign = {
 const columns = [
   {
     field: 'title',
-    flex: 3,
+    flex: 4,
     headerName: 'Album Name',
   },
   {
     field: 'artist_name',
-    flex: 1,
+    flex: 3,
     headerName: 'Artist Name',
   },
   {
@@ -23,7 +23,7 @@ const columns = [
     field: 'release_year',
     headerName: 'Release Year',
     sortable: false,
-    width: 120,
+    width: 110,
   },
   {
     ...rightAlign,
@@ -31,21 +31,19 @@ const columns = [
     headerName: 'Condition',
     renderCell: (params) => `${params.row.condition} / 10`,
     sortable: false,
-    width: 120,
+    width: 100,
   },
 ];
 
 export const Table = ({ data }) => {
-  if (!data) return <Typography variant="h2">Loading...</Typography>
+  if (!data) return <Typography variant="h3">Loading...</Typography>
 
   return (
-    <div style={{ height: 400, width: '100%' }}>
-      <DataGrid
-        columns={columns}
-        disableColumnMenu
-        hideFooter
-        rows={data}
-      />
-    </div>
+    <DataGrid
+      columns={columns}
+      disableColumnMenu
+      hideFooter
+      rows={data}
+    />
   );
 }

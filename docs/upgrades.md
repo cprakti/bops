@@ -38,3 +38,10 @@ The following are ideas on how to improve the repo. They are not prioritized.
 - Controller specs
 - Add aliases, so you can do `~/lib/useDebounce`
 - Add virtualization for smoother scrolling experience
+- Add `doctoc` for better `*.md` file navigation
+- Add `guard` for faster spec feedback
+- Add a proper fuzzy search using trigram
+- Add `bullet` to notify of N+1 risks
+- Add LaunchDarkly for feature flags and/or canary releases
+- Modify the table so on mobile the "Release Year" and "Condition" columns are much smaller
+- Better loading state. Simulate with doing a `sleep 2.0`

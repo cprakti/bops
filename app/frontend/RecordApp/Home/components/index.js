@@ -1,2 +1,2 @@
-export * from "./SearchAndTable";
+export * from "./Table";
 export * from "./Title";
