@@ -1,32 +1,10 @@
-import React, { useEffect, useState } from "react";
-import { Container, Grid, TextField } from "@mui/material";
-import { Table, Title } from "./components";
-
-import axios from "axios";
-import { useDebounce } from './hooks';
-
-const baseParams = {
-  page: 1,
-  per_page: 1000, // bypassing pagination for now
-}
-
-const DEBOUNCE_DELAY_MS = 500;
+import React from "react";
+import { Container, Grid } from "@mui/material";
+import { SearchField, Table, Title } from "./components";
+import { useQueryRecords } from "./hooks";
 
 export const Home = () => {
-  const [query, setQuery] = useState('');
-  const [data, setData] = useState(null);
-  const debouncedQuery = useDebounce(query, DEBOUNCE_DELAY_MS);
-
-  const fetchRecords = async () => {
-    const params = { ...baseParams, query: debouncedQuery }
-    const { data } = await axios.get('/records', { params });
-
-    setData(data);
-  };
-
-  useEffect(async () => {
-    fetchRecords();
-  }, [debouncedQuery]);
+  const { data, query, setQuery } = useQueryRecords();
 
   const onChange = async (event) => {
     setQuery(event.target.value);
@@ -37,7 +15,7 @@ export const Home = () => {
       <Grid container flexDirection="column" spacing={2} sx={{ height: '100vh' }}>
         <Grid item>
           <Title />
-          <TextField fullWidth onChange={onChange} label="Search" sx={{ mt: 1 }} value={query} variant="outlined" />
+          <SearchField onChange={onChange} value={query} />
         </Grid>
         <Grid item sx={{ flexGrow: 1 }}>
           <Table data={data} />
